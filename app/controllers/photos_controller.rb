@@ -30,7 +30,7 @@ class PhotosController < ApplicationController
 
     p.save
 
-    redirect_to("/photos")
+    redirect_to("/photos/#{p.id}")
   end
 
   def update
@@ -42,6 +42,6 @@ class PhotosController < ApplicationController
 
     the_photo.save
 
-    redirect_to("/photos")
+    redirect_to("/photos/#{the_id}")
   end
 end

@@ -25,7 +25,7 @@ class UsersController < ApplicationController
 
     u.save
 
-    redirect_to("/users")
+    redirect_to("/users/#{u.username}")
   end
 
   def update
