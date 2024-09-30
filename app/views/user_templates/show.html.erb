@@ -4,7 +4,7 @@
   <dt>ID</dt> 
   <dd><%= @the_user.id %></dd>
 
-  <dt>Edit user</dt> 
+  <dt>Edit user</dt>
   <dd>form</dd>
 </dl>
 
@@ -28,7 +28,7 @@
     <td><%= a_photo.caption %></td>
     <td><%= a_photo.created_at %></td>
     <td>
-      <a href="/users/<%= @a_photo.id %>">Show details</a>
+      <a href="/users/<%= a_photo.id %>">Show details</a>
     </td>
   </tr>
   <% end %>
