@@ -4,4 +4,11 @@ class PhotosController < ApplicationController
 
     render({ :template => "photo_templates/index"} )
   end
+
+  def show
+    url_id = params.fetch("photo_id")
+    @the_photo = Photo.where({ :id => url_id }).first
+
+    render({ :template => "photo_templates/show" })
+  end
 end
