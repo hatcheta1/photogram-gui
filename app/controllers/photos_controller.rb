@@ -14,10 +14,21 @@ class PhotosController < ApplicationController
 
   def destroy
     the_id = params.fetch("photo_id")
-    
+
     the_photo = Photo.where({ :id => the_id }).first
 
     the_photo.destroy
+
+    redirect_to("/photos")
+  end
+
+  def create
+    p = Photo.new
+    p.image = params.fetch("image_url")
+    p.caption = params.fetch("caption")
+    p.owner_id = params.fetch("owner_id")
+
+    p.save
 
     redirect_to("/photos")
   end
