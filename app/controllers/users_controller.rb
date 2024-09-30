@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    url_username = params.fetch("username")
+    url_username = params.fetch("input_username")
 
     matching_usernames = User.where({ :username => url_username })
 
@@ -26,5 +26,16 @@ class UsersController < ApplicationController
     u.save
 
     redirect_to("/users")
+  end
+
+  def update
+    the_username = params.fetch("input_username")
+    the_user = User.where({ :username => the_username }).first
+
+    the_user.username = params.fetch("username")
+
+    the_user.save
+
+    redirect_to("/users/#{the_username}")
   end
 end
