@@ -6,9 +6,19 @@ class PhotosController < ApplicationController
   end
 
   def show
-    url_id = params.fetch("photo_id")
-    @the_photo = Photo.where({ :id => url_id }).first
+    the_id = params.fetch("photo_id")
+    @the_photo = Photo.where({ :id => the_id }).first
 
     render({ :template => "photo_templates/show" })
+  end
+
+  def destroy
+    the_id = params.fetch("photo_id")
+    
+    the_photo = Photo.where({ :id => the_id }).first
+
+    the_photo.destroy
+
+    redirect_to("/photos")
   end
 end
